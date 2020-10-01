@@ -1,24 +1,13 @@
 <?php
-/*
-Plugin Name: GP Premium
-Plugin URI: https://generatepress.com
-Description: The entire collection of GeneratePress premium modules.
-Version: 1.9.1
-Author: Tom Usborne
-Author URI: https://generatepress.com
-License: GNU General Public License v2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Text Domain: gp-premium
-*/
+
 
 if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly.
+	exit; 
 }
 
-// Set our version
+
 define( 'GP_PREMIUM_VERSION', '1.9.1' );
 
-// Set our library directory
 define( 'GP_LIBRARY_DIRECTORY', plugin_dir_path( __FILE__ ) . 'library/' );
 define( 'GP_LIBRARY_DIRECTORY_URL', plugin_dir_url( __FILE__ ) . 'library/' );
 
@@ -29,12 +18,12 @@ if ( ! function_exists( 'generatepress_is_module_active' ) ) {
 	 * definition: Check to see if defined in wp-config.php
 	 **/
 	function generatepress_is_module_active( $module, $definition ) {
-		// If we don't have the module or definition, bail.
+		// If we don't have the module or the definition, bail.
 		if ( ! $module && ! $definition ) {
 			return false;
 		}
 
-		// If our module is active, return true.
+		// If our module is active, return true or false.
 		if ( 'activated' == get_option( $module ) || defined( $definition ) ) {
 			return true;
 		}
@@ -47,7 +36,7 @@ if ( ! function_exists( 'generatepress_is_module_active' ) ) {
 if ( ! function_exists( 'generate_package_setup' ) ) {
 	add_action( 'plugins_loaded', 'generate_package_setup' );
 	/**
-	 * Set up our translations
+	 * Set up our translations in english
 	 **/
 	function generate_package_setup() {
 		load_plugin_textdomain( 'gp-premium', false, 'gp-premium/langs/' );
