@@ -1,5 +1,4 @@
 <?php
-// No direct access, please
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 if ( ! class_exists( 'GeneratePress_Backgrounds_CSS' ) ) {
@@ -27,7 +26,7 @@ if ( ! class_exists( 'GeneratePress_Backgrounds_CSS' ) ) {
 				return false;
 			}
 
-			// Set up our background image URL param if needed
+		
 			$url_start = ( '' !== $url ) ? "url('" : "";
 			$url_end = ( '' !== $url ) ? "')" : "";
 
@@ -42,7 +41,7 @@ if ( ! class_exists( 'GeneratePress_Backgrounds_CSS' ) ) {
 
 				$this->_output .= $selector_output;
 
-				// Reset the css
+			
 				$this->_css = '';
 			}
 
@@ -50,10 +49,10 @@ if ( ! class_exists( 'GeneratePress_Backgrounds_CSS' ) ) {
 		}
 
 		public function css_output() {
-			// Add current selector's rules to output
+			
 			$this->add_selector_rules_to_output();
 
-			// Output minified css
+			
 			return $this->_output;
 		}
 
